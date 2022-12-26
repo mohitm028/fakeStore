@@ -1,0 +1,101 @@
+.login {
+  display: flex;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 1000px;
+  justify-content: center;
+  align-items: center;
+  .login__container {
+    display: flex;
+    background-color: white;
+    border: 1px solid #b4aeae;
+    border-radius: 6px;
+    height: 537px;
+    width: 523px;
+    margin-top: -100px;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+    position: relative;
+  }
+  .login__heading {
+    display: flex;
+    margin-top: 55px;
+    font-weight: 600;
+    font-size: 36px;
+    justify-content: center;
+  }
+  .login__content {
+    display: flex;
+    p {
+      color: #a5a5a5;
+      font-size: 14px;
+    }
+  }
+  .login__username {
+    position: relative;
+    margin-top: 50px;
+    img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      bottom: 4px;
+      right: 376px;
+    }
+    input {
+      width: 352px;
+      height: 30px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+  .login__password {
+    position: relative;
+    margin-top: 50px;
+    img {
+      width: 28px;
+      height: 33px;
+      position: absolute;
+      bottom: 4px;
+      right: 376px;
+    }
+    input {
+      width: 352px;
+      height: 30px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+  .login__forgot {
+    position:absolute;
+    top:325px;
+    right:92px;
+    width:110px;
+    font-size: 14px;
+    font-Weight:400;
+
+  }
+
+  .login__submit {
+    button {
+      background: #38aecc;
+      border: 1px solid #38aecc;
+      color: white;
+      border-radius: 4px;
+      width: 110px;
+      height: 49px;
+      font-weight: 400;
+      font-size: 16px;
+      position: absolute;
+      top: 423px;
+      right: 90px;
+      
+    }
+  }
+}
