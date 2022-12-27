@@ -14,7 +14,6 @@
     width: 523px;
     margin-top: -100px;
     align-items: center;
-    padding: 10px;
     flex-direction: column;
     position: relative;
   }
@@ -71,15 +70,33 @@
     input:focus {
       outline: none;
     }
-  }
-  .login__forgot {
-    position:absolute;
-    top:325px;
-    right:92px;
-    width:110px;
-    font-size: 14px;
-    font-Weight:400;
+    .eye_image{
+        position: absolute;
+        bottom: 4px;
+        right: 2px;
+        height: 14px;
+        width: 20px;
 
+    }
+    .eye_image_off{
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      height: 19px;
+      width: 20px;
+  
+  }
+ 
+
+  }
+
+  .login__forgot {
+    position: absolute;
+    top: 342px;
+    right: 92px;
+    width: 110px;
+    font-size: 14px;
+    font-weight: 400;
   }
 
   .login__submit {
@@ -95,7 +112,27 @@
       position: absolute;
       top: 423px;
       right: 90px;
-      
+      cursor: pointer;
     }
+
   }
+  .login__invalidCredentials{
+    background-color: rgb(246, 201, 201);
+    width:100%;
+    color: rgb(236, 53, 53);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+    height:32px;
+  }
+
+  
+}
+
+.error {
+  color: red;
+  width: 352px;
+
 }
