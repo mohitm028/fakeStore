@@ -1,0 +1,138 @@
+.login {
+  display: flex;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 1000px;
+  justify-content: center;
+  align-items: center;
+  .login__container {
+    display: flex;
+    background-color: white;
+    border: 1px solid #b4aeae;
+    border-radius: 6px;
+    height: 537px;
+    width: 523px;
+    margin-top: -100px;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .login__heading {
+    display: flex;
+    margin-top: 55px;
+    font-weight: 600;
+    font-size: 36px;
+    justify-content: center;
+  }
+  .login__content {
+    display: flex;
+    p {
+      color: #a5a5a5;
+      font-size: 14px;
+    }
+  }
+  .login__username {
+    position: relative;
+    margin-top: 50px;
+    img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      bottom: 4px;
+      right: 376px;
+    }
+    input {
+      width: 352px;
+      height: 30px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+  .login__password {
+    position: relative;
+    margin-top: 50px;
+    img {
+      width: 28px;
+      height: 33px;
+      position: absolute;
+      bottom: 4px;
+      right: 376px;
+    }
+    input {
+      width: 352px;
+      height: 30px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      outline: none;
+    }
+    .eye_image{
+        position: absolute;
+        bottom: 4px;
+        right: 2px;
+        height: 14px;
+        width: 20px;
+
+    }
+    .eye_image_off{
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      height: 19px;
+      width: 20px;
+  
+  }
+ 
+
+  }
+
+  .login__forgot {
+    position: absolute;
+    top: 342px;
+    right: 92px;
+    width: 110px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .login__submit {
+    button {
+      background: #38aecc;
+      border: 1px solid #38aecc;
+      color: white;
+      border-radius: 4px;
+      width: 110px;
+      height: 49px;
+      font-weight: 400;
+      font-size: 16px;
+      position: absolute;
+      top: 423px;
+      right: 90px;
+      cursor: pointer;
+    }
+
+  }
+  .login__invalidCredentials{
+    background-color: rgb(246, 201, 201);
+    width:100%;
+    color: rgb(236, 53, 53);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+    height:32px;
+  }
+
+  
+}
+
+.error {
+  color: red;
+  width: 352px;
+
+}
