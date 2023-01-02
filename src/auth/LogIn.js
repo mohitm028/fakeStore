@@ -6,10 +6,13 @@ import userImage from "../images/User.png";
 import lockImage from "../images/Lock.png";
 import eye from "../images/Eye.png";
 import eyeOff from "../images/eye-off.svg";
+import { useHistory } from "react-router-dom";
 
 function LogIn() {
   const [match, setMatch] = useState(false);
   const [eyeIcon, setEyeIcon] = useState(true);
+
+  const history = useHistory();
 
   const handlePasswordEye = () => {
     setEyeIcon((prevState) => !prevState);
@@ -40,6 +43,8 @@ function LogIn() {
         values.password == "TEST@123"
       ) {
         setMatch(false);
+        localStorage.setItem("username", values.username);
+        history.push("/dashboard");
       } else {
         setMatch(true);
       }
