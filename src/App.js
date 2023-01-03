@@ -16,6 +16,7 @@ function App() {
         <Route exact path={"/addproduct"}>
           <AddProductContainer />
         </Route>
+        <Route exactpath={":id/users"}></Route>
       </Switch>
     </Router>
   );

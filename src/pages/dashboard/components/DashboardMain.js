@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import "./DashboardMain.scss";
 import Navbar from "../../../shared/commonComponent/Navbar";
+import { useHistory } from "react-router-dom";
 
 function DashboardMain(props) {
   const { fetchAllProducts, productsData } = props;
-  console.log("Product Data ", productsData);
+  const history = useHistory();
+
   useEffect(() => {
     fetchAllProducts();
   }, []);
+  const handeClick = () => {};
 
   return (
     <div className="dashboardMain">
@@ -15,7 +18,7 @@ function DashboardMain(props) {
       {productsData.map((values) => {
         return (
           <>
-            <div className="dashboardMain__container">
+            <div className="dashboardMain__container" onClick={handeClick}>
               <img src={values.image} />
               <p>{values.title}</p>
               <p>${values.price}</p>

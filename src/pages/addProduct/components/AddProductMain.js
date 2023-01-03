@@ -145,15 +145,9 @@ function AddProductMain(props) {
               <span className="error">{formik.errors.image}</span>
             ) : null}
             <div className="addproductMain__submit">
-              {addProductLoading ? (
-                <button type="submit" disabled={formik.isSubmitting}>
-                  Submitting
-                </button>
-              ) : (
-                <button type="submit" disabled={formik.isSubmitting}>
-                  SUBMIT
-                </button>
-              )}
+              <button type="submit" disabled={addProductLoading}>
+                {addProductLoading ? "Submitting" : "SUBMIT"}
+              </button>
             </div>
           </div>
           <ToastContainer
