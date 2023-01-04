@@ -3,13 +3,15 @@ import {
   addProductRequest,
   addProductRequestFailure,
   addProductRequestSuccess,
+  editProductRequest,
+  editProductRequestFailure,
+  editProductRequestSuccess,
   productDetailRequest,
   productDetailRequestFailure,
   productDetailRequestSuccess,
 } from "./action";
 
 export const addProduct = (formData) => {
-  console.log("api form data", formData);
   return (dispatch) => {
     dispatch(addProductRequest());
     return axios
@@ -39,6 +41,23 @@ export const productDetail = (id) => {
       })
       .catch((error) => {
         dispatch(productDetailRequestFailure(error.message));
+      });
+  };
+};
+
+export const editProduct = (id, formData) => {
+  return (dispatch) => {
+    dispatch(editProductRequest());
+    return axios
+      .put(`https://fakestoreapi.com/products/${id}`, formData)
+      .then((response) => {
+        if (response?.status === 200) {
+          dispatch(editProductRequestSuccess(response?.data));
+          return response;
+        }
+      })
+      .catch((error) => {
+        dispatch(editProductRequestFailure(error.message));
       });
   };
 };

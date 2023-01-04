@@ -20,6 +20,9 @@ function App() {
         <Route exact path={"/:id/details"}>
           <DetailContainer />
         </Route>
+        <Route exact path={"/:id/edit"}>
+          <AddProductContainer />
+        </Route>
       </Switch>
     </Router>
   );
