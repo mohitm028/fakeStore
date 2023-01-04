@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../../shared/commonComponent/Navbar";
 import ThreeDot from "../../../images/threeDot.png";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 function DetailProduct(props) {
   const {
@@ -16,6 +16,10 @@ function DetailProduct(props) {
   const id = params.id;
   const handleDropDown = () => {
     setDropDown((prevState) => !prevState);
+  };
+  const history = useHistory();
+  const handleClick = () => {
+    history.push(`/${id}/edit`);
   };
   useEffect(() => {
     productDetail(id);
@@ -43,7 +47,9 @@ function DetailProduct(props) {
               />
               {dropDown && (
                 <div className="detailProduct__settings">
-                  <div className="edit">Edit</div>
+                  <div className="edit" onClick={handleClick}>
+                    Edit
+                  </div>
                   <div className="delete">Delete</div>
                 </div>
               )}

@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../../shared/commonComponent/Navbar";
 import "./index.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { useParams, useHistory } from "react-router-dom";
 
 function AddProductMain(props) {
-  const { addProduct, addProductLoading } = props;
-  console.log("loading", addProductLoading);
+  const {
+    addProduct,
+    addProductLoading,
+    productDetail,
+    productDetailData,
+    clearProductData,
+    editProduct,
+    editProductLoading,
+  } = props;
+  const params = useParams();
+  const id = params.id;
+  const history = useHistory();
+
+  useEffect(() => {
+    productDetail(id);
+    return () => {
+      clearProductData();
+    };
+  }, [id]);
+
   const formik = useFormik({
     initialValues: {
-      title: "",
-      price: "",
-      description: "",
-      image: "",
-      category: "",
+      title: productDetailData.title || "",
+      price: productDetailData.price || "",
+      description: productDetailData.description || "",
+      image: productDetailData.image || "",
+      category: productDetailData.category || "",
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
@@ -31,12 +50,21 @@ function AddProductMain(props) {
       formData.description = values.description;
       formData.category = values.category;
       formData.image = values.image;
-      addProduct(formData).then((response) => {
-        if (response?.status === 200) {
-          toast.success("Product Successfully added");
-          resetForm({ values: "" });
-        }
-      });
+      {
+        id
+          ? editProduct(id, formData).then((response) => {
+              if (response?.status === 200) {
+                history.push("/dashboard");
+                toast.success("Product Successfully updated");
+              }
+            })
+          : addProduct(formData).then((response) => {
+              if (response?.status === 200) {
+                toast.success("Product Successfully added");
+                resetForm({ values: "" });
+              }
+            });
+      }
     },
   });
   return (
@@ -44,7 +72,7 @@ function AddProductMain(props) {
       <Navbar />
       <form onSubmit={formik.handleSubmit}>
         <div className="addProductMain__container ">
-          <h3>Add Product</h3>
+          {id ? <h3>Edit Product</h3> : <h3>Add Product</h3>}
           <div className="addproductMain__title">
             <p>Title</p>
             <div>
@@ -56,7 +84,6 @@ function AddProductMain(props) {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.title}
-                // onKeyDown={(e) => handleClick(e)}
               />
             </div>
             {formik.touched.title && formik.errors.title ? (
@@ -143,12 +170,25 @@ function AddProductMain(props) {
             {formik.touched.image && formik.errors.image ? (
               <span className="error">{formik.errors.image}</span>
             ) : null}
+          </div>
+          {id ? (
+            <div className="addproductMain__submit">
+              <button type="submit" className="cancel">
+                CANCEL
+              </button>
+
+              <button type="submit" disabled={editProductLoading}>
+                {editProductLoading ? "Updating" : "UPDATE"}
+              </button>
+            </div>
+          ) : (
             <div className="addproductMain__submit">
               <button type="submit" disabled={addProductLoading}>
                 {addProductLoading ? "Submitting" : "SUBMIT"}
               </button>
             </div>
-          </div>
+          )}
+
           <ToastContainer
             position="top-right"
             autoClose={2000}

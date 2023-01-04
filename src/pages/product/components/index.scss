@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0 auto;
   padding-top: 100px;
-  height: 850px;
+  height: 880px;
   display: flex;
   justify-content: center;
   .addProductMain__container {
@@ -11,12 +11,13 @@
     background-color: white;
     border: 1px solid #b4aeae;
     border-radius: 4px;
-    height: 754px;
+    height: fit-content;
     width: 662px;
-    margin-top: 46px;
     align-items: center;
     flex-direction: column;
     position: relative;
+    margin-top: 46px;
+    margin-bottom: 30px;
     h3 {
       font-size: 24px;
       font-weight: 600px;
@@ -103,21 +104,26 @@
       input:focus {
         outline: none;
       }
-      .addproductMain__submit {
-        button {
-          background: #38aecc;
-          border: 1px solid #38aecc;
-          color: white;
-          border-radius: 4px;
-          width: 110px;
-          height: 49px;
-          font-weight: 400;
-          font-size: 16px;
-          position: absolute;
-          top: 120px;
-          right: 0px;
-          cursor: pointer;
-        }
+    }
+    .addproductMain__submit {
+      margin-left: auto;
+      margin-bottom: 40px;
+      button {
+        background: #38aecc;
+        border: 1px solid #38aecc;
+        color: white;
+        border-radius: 4px;
+        width: 110px;
+        height: 40px;
+        font-weight: 400;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-right: 40px;
+        cursor: pointer;
+      }
+      .cancel {
+        background: rgb(161, 164, 165);
+        border: 1px solid rgb(161, 164, 165);
       }
     }
   }
@@ -226,15 +232,21 @@
           right: 0px;
           display: flex;
           flex-direction: column;
-          font-size: 24px;
+          font-size: 18px;
           font-weight: 400;
+          justify-content: center;
+          align-items: center;
           cursor: pointer;
+
           .edit {
             border-bottom: 1px solid #b4aeae;
-            padding-left: 20px;
+            justify-content: center;
+            width: 82px;
+            display: flex;
           }
           .delete {
-            padding-left: 8px;
+            display: flex;
+            justify-content: center;
           }
         }
       }
