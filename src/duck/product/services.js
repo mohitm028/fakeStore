@@ -3,6 +3,9 @@ import {
   addProductRequest,
   addProductRequestFailure,
   addProductRequestSuccess,
+  deleteProductRequest,
+  deleteProductRequestFailure,
+  deleteProductRequestSuccess,
   editProductRequest,
   editProductRequestFailure,
   editProductRequestSuccess,
@@ -58,6 +61,23 @@ export const editProduct = (id, formData) => {
       })
       .catch((error) => {
         dispatch(editProductRequestFailure(error.message));
+      });
+  };
+};
+
+export const deleteProduct = (id) => {
+  return (dispatch) => {
+    dispatch(deleteProductRequest());
+    return axios
+      .delete(`https://fakestoreapi.com/products/${id}`)
+      .then((response) => {
+        if (response?.status === 200) {
+          dispatch(deleteProductRequestSuccess(response?.data));
+          return response;
+        }
+      })
+      .catch((error) => {
+        dispatch(deleteProductRequestFailure(error.message));
       });
   };
 };

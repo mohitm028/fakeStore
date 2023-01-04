@@ -251,5 +251,49 @@
         }
       }
     }
+    .deleteConfirmation {
+      background-color: white;
+      border: 1px solid #b4aeae;
+      border-radius: 4px;
+      width: 450px;
+      height: 170px;
+      margin-top: 80px;
+      // justify-content: center;
+      // flex-direction: row;
+      position: absolute;
+      bottom: 278px;
+      right: 225px;
+      img {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      p {
+        margin-left: 40px;
+        font-size: 19px;
+        font-weight: 400;
+        justify-content: center;
+      }
+      .confirmation__button {
+        margin-left: 160px;
+        margin-top: 65px;
+
+        button {
+          background: #38aecc;
+          border: 1px solid #38aecc;
+          color: white;
+          width: 90px;
+          height: 38px;
+          font-size: 18px;
+          margin-left: 40px;
+        }
+        .cancel {
+          background: rgb(161, 164, 165);
+          border: 1px solid rgb(161, 164, 165);
+        }
+      }
+    }
   }
 }
