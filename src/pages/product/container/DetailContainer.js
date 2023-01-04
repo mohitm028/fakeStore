@@ -22,10 +22,16 @@ export class DetailContainer extends Component {
   clearProductData = () => {
     return this.props.actions.clearProductData();
   };
+
+  deleteProduct = (id) => {
+    return this.props.actions.deleteProduct(id);
+  };
+
   render() {
     return (
       <DetailProduct
         productDetail={this.productDetail}
+        deleteProduct={this.deleteProduct}
         clearProductData={this.clearProductData}
         {...this.props}
       />
@@ -38,6 +44,9 @@ const mapStateToProps = (state) => {
     productDetailData: state.product.productDetailData,
     productDetailLoading: state.product.productDetailLoading,
     productDetailError: state.product.productDetailError,
+    deleteLoadingData: state.product.deleteLoading,
+    deleteProductData: state.product.deleteProducts,
+    deleteError: state.product.deleteError,
   };
 };
 const mapDispatchToProps = (dispatch) => {

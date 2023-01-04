@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../../shared/commonComponent/Navbar";
 import ThreeDot from "../../../images/threeDot.png";
 import { useParams, useHistory } from "react-router-dom";
+import Cross from "../../../images/cross.png";
 
 function DetailProduct(props) {
   const {
@@ -9,7 +10,10 @@ function DetailProduct(props) {
     productDetailData,
     productDetailLoading,
     clearProductData,
+    deleteProduct,
   } = props;
+
+  const [deleteKey, setDeleteKey] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [count, setCount] = useState(0);
   const params = useParams();
@@ -18,8 +22,20 @@ function DetailProduct(props) {
     setDropDown((prevState) => !prevState);
   };
   const history = useHistory();
-  const handleClick = () => {
+  const handleEdit = () => {
     history.push(`/${id}/edit`);
+  };
+
+  const handleDelete = () => {
+    setDeleteKey((prevState) => !prevState);
+  };
+
+  const handleConfirm = () => {
+    deleteProduct(id).then((response) => {
+      if (response?.status === 200) {
+        history.push("/dashboard");
+      }
+    });
   };
   useEffect(() => {
     productDetail(id);
@@ -47,10 +63,12 @@ function DetailProduct(props) {
               />
               {dropDown && (
                 <div className="detailProduct__settings">
-                  <div className="edit" onClick={handleClick}>
+                  <div className="edit" onClick={handleEdit}>
                     Edit
                   </div>
-                  <div className="delete">Delete</div>
+                  <div className="delete" onClick={handleDelete}>
+                    Delete
+                  </div>
                 </div>
               )}
             </div>
@@ -83,6 +101,20 @@ function DetailProduct(props) {
               <button className="cart__addtoCart">Add to Cart</button>
             </div>
           </div>
+          {deleteKey && (
+            <div className="deleteConfirmation">
+              <img src={Cross} onClick={handleDelete} />
+              <p>Are you sure you want to delete the product?</p>
+              <div className="confirmation__button">
+                <button type="submit" className="cancel" onClick={handleDelete}>
+                  Cancel
+                </button>
+                <button type="submit" onClick={handleConfirm}>
+                  Confirm
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
