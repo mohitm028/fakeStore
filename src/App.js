@@ -1,7 +1,8 @@
 import LogIn from "./auth/LogIn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DashboardContainer from "./pages/dashboard/container/DashboardContainer";
-import AddProductContainer from "./pages/addProduct/container/AddProductContainer";
+import AddProductContainer from "./pages/product/container/AddProductContainer";
+import DetailContainer from "./pages/product/container/DetailContainer";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
         <Route exact path={"/addproduct"}>
           <AddProductContainer />
         </Route>
-        <Route exactpath={":id/users"}></Route>
+        <Route exact path={"/:id/details"}>
+          <DetailContainer />
+        </Route>
       </Switch>
     </Router>
   );

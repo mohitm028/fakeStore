@@ -10,21 +10,24 @@ function DashboardMain(props) {
   useEffect(() => {
     fetchAllProducts();
   }, []);
-  const handeClick = () => {};
+  const handeClick = (id) => {
+    history.push(`/${id}/details`);
+  };
 
   return (
     <div className="dashboardMain">
       <Navbar />
       {productsData.map((values) => {
         return (
-          <>
-            <div className="dashboardMain__container" onClick={handeClick}>
-              <img src={values.image} />
-              <p>{values.title}</p>
-              <p>${values.price}</p>
-              <p>{values.description.slice(0, 70)}...</p>
-            </div>
-          </>
+          <div
+            className="dashboardMain__container"
+            onClick={() => handeClick(values.id)}
+          >
+            <img src={values.image} />
+            <p>{values.title}</p>
+            <p>${values.price}</p>
+            <p>{values.description.slice(0, 70)}...</p>
+          </div>
         );
       })}
     </div>

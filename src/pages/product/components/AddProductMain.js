@@ -1,14 +1,13 @@
 import React from "react";
 import Navbar from "../../../shared/commonComponent/Navbar";
-import "./AddProductMain.scss";
+import "./index.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 function AddProductMain(props) {
-  const { addProduct, addProductData, addProductLoading, addProductError } =
-    props;
+  const { addProduct, addProductLoading } = props;
   console.log("loading", addProductLoading);
   const formik = useFormik({
     initialValues: {
