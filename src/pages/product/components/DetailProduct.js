@@ -11,6 +11,7 @@ function DetailProduct(props) {
     productDetailLoading,
     clearProductData,
     deleteProduct,
+    deleteLoading,
   } = props;
 
   const [deleteKey, setDeleteKey] = useState(false);
@@ -109,8 +110,12 @@ function DetailProduct(props) {
                 <button type="submit" className="cancel" onClick={handleDelete}>
                   Cancel
                 </button>
-                <button type="submit" onClick={handleConfirm}>
-                  Confirm
+                <button
+                  type="submit"
+                  onClick={handleConfirm}
+                  disabled={deleteLoading}
+                >
+                  {deleteLoading ? "Confirming" : "CONFIRM"}
                 </button>
               </div>
             </div>
