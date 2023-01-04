@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
     productDetailData: state.product.productDetailData,
     productDetailLoading: state.product.productDetailLoading,
     productDetailError: state.product.productDetailError,
-    deleteLoadingData: state.product.deleteLoading,
+    deleteLoading: state.product.deleteLoading,
     deleteProductData: state.product.deleteProducts,
     deleteError: state.product.deleteError,
   };
