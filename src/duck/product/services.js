@@ -3,6 +3,9 @@ import {
   addProductRequest,
   addProductRequestFailure,
   addProductRequestSuccess,
+  productDetailRequest,
+  productDetailRequestFailure,
+  productDetailRequestSuccess,
 } from "./action";
 
 export const addProduct = (formData) => {
@@ -19,6 +22,23 @@ export const addProduct = (formData) => {
       })
       .catch((error) => {
         dispatch(addProductRequestFailure(error.message));
+      });
+  };
+};
+
+export const productDetail = (id) => {
+  return (dispatch) => {
+    dispatch(productDetailRequest());
+    return axios
+      .get(`https://fakestoreapi.com/products/${id}`)
+      .then((response) => {
+        if (response?.status === 200) {
+          dispatch(productDetailRequestSuccess(response?.data));
+          return response;
+        }
+      })
+      .catch((error) => {
+        dispatch(productDetailRequestFailure(error.message));
       });
   };
 };

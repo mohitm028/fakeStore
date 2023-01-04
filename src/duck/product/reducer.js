@@ -8,6 +8,10 @@ import {
   DELETE_PRODUCTS_REQUEST,
   DELETE_PRODUCTS_REQUEST_SUCCESS,
   DELETE_PRODUCTS_REQUEST_FAILURE,
+  PRODUCT_DETAIL_REQUEST,
+  PRODUCT_DETAIL_REQUEST_SUCCESS,
+  PRODUCT_DETAIL_REQUEST_FAILURE,
+  CLEAR_PRODUCT_DATA,
 } from "./type";
 
 const initialState = {
@@ -20,6 +24,9 @@ const initialState = {
   deleteLoading: false,
   deleteProducts: [],
   deleteError: {},
+  productDetailLoading: false,
+  productDetailData: [],
+  productDetailError: {},
 };
 
 const productReducer = (state = initialState, action) => {
@@ -78,6 +85,39 @@ const productReducer = (state = initialState, action) => {
         deleteError: action.payload,
       };
 
+    case PRODUCT_DETAIL_REQUEST:
+      return {
+        ...state,
+        productDetailLoading: true,
+      };
+
+    case PRODUCT_DETAIL_REQUEST_SUCCESS:
+      return {
+        ...state,
+        productDetailLoading: false,
+        productDetailData: action.payload,
+      };
+    case PRODUCT_DETAIL_REQUEST_FAILURE:
+      return {
+        ...state,
+        productDetailLoading: false,
+        productDetailError: action.payload,
+      };
+    case CLEAR_PRODUCT_DATA:
+      return {
+        addLoading: false,
+        addProducts: [],
+        addError: {},
+        editLoading: false,
+        editProducts: [],
+        editError: {},
+        deleteLoading: false,
+        deleteProducts: [],
+        deleteError: {},
+        productDetailLoading: false,
+        productDetailData: [],
+        productDetailError: {},
+      };
     default:
       return state;
   }

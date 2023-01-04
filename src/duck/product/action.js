@@ -8,6 +8,10 @@ import {
   EDIT_PRODUCTS_REQUEST,
   EDIT_PRODUCTS_REQUEST_FAILURE,
   EDIT_PRODUCTS_REQUEST_SUCCESS,
+  PRODUCT_DETAIL_REQUEST,
+  PRODUCT_DETAIL_REQUEST_SUCCESS,
+  PRODUCT_DETAIL_REQUEST_FAILURE,
+  CLEAR_PRODUCT_DATA,
 } from "./type";
 
 export function addProductRequest() {
@@ -70,5 +74,35 @@ export function deleteProductRequestFailure(error) {
   return {
     type: DELETE_PRODUCTS_REQUEST_FAILURE,
     payload: error,
+  };
+}
+
+// details
+
+export function productDetailRequest() {
+  return {
+    type: PRODUCT_DETAIL_REQUEST,
+  };
+}
+
+export function productDetailRequestSuccess(data) {
+  return {
+    type: PRODUCT_DETAIL_REQUEST_SUCCESS,
+    payload: data,
+  };
+}
+
+export function productDetailRequestFailure(error) {
+  return {
+    type: PRODUCT_DETAIL_REQUEST_FAILURE,
+    payload: error,
+  };
+}
+
+//
+
+export function clearProductData() {
+  return {
+    type: CLEAR_PRODUCT_DATA,
   };
 }
