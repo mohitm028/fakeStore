@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../../../shared/commonComponent/Navbar";
 import ThreeDot from "../../../images/threeDot.png";
 import { useParams, useHistory } from "react-router-dom";
 import Cross from "../../../images/cross.png";
+import { AddedToCart } from "../../../context";
 
 function DetailProduct(props) {
   const {
@@ -49,6 +50,12 @@ function DetailProduct(props) {
       setCount(count + 1);
     }
   };
+
+  const { setCartData } = useContext(AddedToCart);
+  const handleAddToCart = () => {
+    setCartData((prevState) => prevState + count);
+  };
+
   useEffect(() => {
     productDetail(id);
     return () => {
@@ -111,7 +118,9 @@ function DetailProduct(props) {
               >
                 +
               </button>
-              <button className="cart__addtoCart">Add to Cart</button>
+              <button className="cart__addtoCart" onClick={handleAddToCart}>
+                Add to Cart
+              </button>
             </div>
           </div>
           {deleteKey && (

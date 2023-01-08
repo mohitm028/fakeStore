@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Navbar.scss";
 import Logo from "../../images/logo-social.png";
 import Circle from "../../images/Circle.png";
 import DropDown from "../../images/dropDown.png";
 import Cart from "../../images/cart.jpg";
+import { AddedToCart } from "../../context/index";
 
 function Navbar() {
   const [dropDown, setDropDown] = useState(false);
@@ -27,6 +28,8 @@ function Navbar() {
     name = name.slice(0, 1);
     return name.toUpperCase();
   };
+
+  const { cartData } = useContext(AddedToCart);
   return (
     <nav className="navbar__nav">
       <div className="navbar__logo">
@@ -39,14 +42,16 @@ function Navbar() {
         <Link to="/addproduct">Add Product</Link>
       </div>
       <div className="navbar__cart">
-        <img src={Cart} />
+        <div className="onlyCart">
+          <img src={Cart} />
+          <div className="cartCircle">
+            <p>{cartData}</p>
+          </div>
+        </div>
       </div>
       <div className="navbar__profile">
         <div className="navbar__circle">
-          <img src={Circle} />
-          <div className="navbar__letter">
-            {handleInitialLetter(localStorage.getItem("username"))}
-          </div>
+          {handleInitialLetter(localStorage.getItem("username"))}
         </div>
 
         <Link>{handleUserName(localStorage.getItem("username"))}</Link>
