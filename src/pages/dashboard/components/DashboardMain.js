@@ -4,12 +4,12 @@ import Navbar from "../../../shared/commonComponent/Navbar";
 import { useHistory } from "react-router-dom";
 
 function DashboardMain(props) {
-  const [fetchAll, setFetchAll] = useState(false);
   const { fetchAllProducts, fetchCategoryProducts } = props;
   const history = useHistory();
 
   const [value, setValue] = useState("");
   const [products, setProducts] = useState([]);
+  const [fetchAll, setFetchAll] = useState(false);
 
   const handleProductListByCategory = (e) => {
     if (e.target.value == "all") {
