@@ -1,37 +1,63 @@
 .dashboardMain {
   background-color: #f2f2f2;
   width: 100%;
-  margin: 0 auto;
-  padding-top: 100px;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-
-  .dashboardMain__container {
-    display: flex;
-    background-color: white;
-    border: 1px solid #b4aeae;
+  position: absolute;
+  top: 93px;
+  padding-bottom: 30px;
+  .dashboardMain__filter {
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(230, 230, 230);
     border-radius: 4px;
-    height: 329px;
-    width: 243px;
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 1px 2px 2px rgb(199, 196, 196);
-    margin-top: 46px;
-    margin-left: 54px;
-    cursor: pointer;
-    img {
-      height: 130px;
-      width: 130px;
-      margin-top: 20px;
+    height: 40px;
+    width: 280px;
+    margin: 30px 40px 0 0;
+    margin-left: auto;
+
+    select {
+      border: none;
+      background-color: rgb(230, 230, 230);
+      font-size: 16px;
+      font-weight: 400;
+      padding: 9px 0;
+      width: 280px;
     }
-    p {
-      font-size: 14px;
-      font-weight: 400px;
-      text-align: center;
+    select:focus {
+      outline: none;
     }
-    &:hover {
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .dashboardMain__dashboard {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+
+    .dashboardMain__container {
+      display: flex;
+      background-color: white;
+      border: 1px solid #b4aeae;
+      border-radius: 4px;
+      height: 329px;
+      width: 243px;
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 1px 2px 2px rgb(199, 196, 196);
+      margin-top: 30px;
+      margin-left: 54px;
+      cursor: pointer;
+      img {
+        height: 130px;
+        width: 130px;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 400px;
+        text-align: center;
+      }
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
     }
   }
 }

@@ -38,6 +38,17 @@ function DetailProduct(props) {
       }
     });
   };
+
+  const handleCart = (symbol) => {
+    if (symbol == "minus") {
+      if (count == 0) setCount(0);
+      else {
+        setCount(count - 1);
+      }
+    } else {
+      setCount(count + 1);
+    }
+  };
   useEffect(() => {
     productDetail(id);
     return () => {
@@ -81,7 +92,7 @@ function DetailProduct(props) {
             <div className="detailProduct__cart">
               <button
                 className="cart__addSubtract"
-                onClick={() => setCount(count - 1)}
+                onClick={() => handleCart("minus")}
               >
                 -
               </button>
@@ -89,13 +100,14 @@ function DetailProduct(props) {
                 type="text"
                 name="cart"
                 id="cart"
+                value={count}
                 onChange={(e) => {
                   e.target.value = e.target.value.replace(/\D/g, "");
                 }}
               />
               <button
                 className="cart__addSubtract"
-                onClick={() => setCount(count + 1)}
+                onClick={() => handleCart("plus")}
               >
                 +
               </button>

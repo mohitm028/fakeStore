@@ -80,7 +80,7 @@ function AddProductMain(props) {
                 type="text"
                 name="title"
                 id="title"
-                placeholder="Enter a product title"
+                placeholder=" Enter a product title"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.title}
@@ -98,7 +98,7 @@ function AddProductMain(props) {
                   type="text"
                   name="price"
                   id="price"
-                  placeholder="Price"
+                  placeholder=" Price"
                   onBlur={formik.handleBlur}
                   value={formik.values.price}
                   onChange={(e) => {
@@ -142,7 +142,7 @@ function AddProductMain(props) {
               <textarea
                 name="description"
                 id="description"
-                placeholder="Enter a product description"
+                placeholder=" Enter a product description"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.description}
@@ -160,7 +160,7 @@ function AddProductMain(props) {
                 type="text"
                 name="image"
                 id="image"
-                placeholder="Upload a product image"
+                placeholder=" Upload a product image"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.image}

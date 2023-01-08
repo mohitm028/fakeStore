@@ -4,6 +4,7 @@ import "./Navbar.scss";
 import Logo from "../../images/logo-social.png";
 import Circle from "../../images/Circle.png";
 import DropDown from "../../images/dropDown.png";
+import Cart from "../../images/cart.jpg";
 
 function Navbar() {
   const [dropDown, setDropDown] = useState(false);
@@ -36,6 +37,9 @@ function Navbar() {
       <div className="navbar__content">
         <Link to="/dashboard">Home</Link>
         <Link to="/addproduct">Add Product</Link>
+      </div>
+      <div className="navbar__cart">
+        <img src={Cart} />
       </div>
       <div className="navbar__profile">
         <div className="navbar__circle">

@@ -22,7 +22,15 @@
     }
   }
   .navbar__content {
-    width: 60%;
+    width: 45%;
+  }
+
+  .navbar__cart {
+    margin-left: 270px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
   .navbar__profile {
     width: 13%;
@@ -50,17 +58,18 @@
         background-color: white;
         border: 1px solid #b4aeae;
         border-radius: 4px;
-        width: 205px;
-        height: 53px;
+        width: 140px;
+        height: 30px;
         position: fixed;
         top: 94px;
         right: 51px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 400;
         cursor: pointer;
+        padding-bottom: 5px;
       }
     }
   }

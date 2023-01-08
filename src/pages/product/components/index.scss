@@ -6,6 +6,7 @@
   height: 880px;
   display: flex;
   justify-content: center;
+
   .addProductMain__container {
     display: flex;
     background-color: white;
@@ -16,7 +17,7 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-    margin-top: 46px;
+    margin-top: 64px;
     margin-bottom: 30px;
     h3 {
       font-size: 24px;

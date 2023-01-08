@@ -10,11 +10,18 @@ import * as dashboardAction from "../../../duck/dashboard/action";
 
 class DashboardContainer extends Component {
   fetchAllProducts = () => {
-    this.props.actions.fetchAllProducts();
+    return this.props.actions.fetchAllProducts();
+  };
+  fetchCategoryProducts = (category) => {
+    return this.props.actions.fetchCategoryProducts(category);
   };
   render() {
     return (
-      <DashboardMain fetchAllProducts={this.fetchAllProducts} {...this.props} />
+      <DashboardMain
+        fetchAllProducts={this.fetchAllProducts}
+        fetchCategoryProducts={this.fetchCategoryProducts}
+        {...this.props}
+      />
     );
   }
 }
@@ -24,6 +31,9 @@ const mapStateToProps = (state) => {
     productsData: state.dashboard.products,
     productsLoading: state.dashboard.loading,
     productsError: state.dashboard.error,
+    categoryProducts: state.dashboard.categoryProducts,
+    categoryLoading: state.dashboard.categoryLoading,
+    categoryError: state.dashboard.categoryError,
   };
 };
 
