@@ -6,6 +6,9 @@
   height: 880px;
   display: flex;
   justify-content: center;
+  .addProductMain__loading {
+    margin-top: 100px;
+  }
 
   .addProductMain__container {
     display: flex;
@@ -19,6 +22,13 @@
     position: relative;
     margin-top: 64px;
     margin-bottom: 30px;
+    @media screen and (max-width: 900px) {
+      width: 600px;
+    }
+    @media screen and (max-width: 700px) {
+      width: 582px;
+    }
+
     h3 {
       font-size: 24px;
       font-weight: 600px;
@@ -35,6 +45,9 @@
         background-color: #f2f2f2;
         border: none;
         font-size: 16px;
+        @media screen and (max-width: 700px) {
+          width: 500px;
+        }
       }
       input:focus {
         outline: none;
@@ -43,6 +56,12 @@
     .addproductMain__priceCategory {
       display: flex;
       margin-right: 207px;
+      @media screen and (max-width: 900px) {
+        margin-right: 152px;
+      }
+      @media screen and (max-width: 900px) {
+        margin-right: 134px;
+      }
 
       input {
         height: 53px;
@@ -86,6 +105,12 @@
         background-color: #f2f2f2;
         border: none;
         font-size: 16px;
+        @media screen and (max-width: 900px) {
+          width: 518px;
+        }
+        @media screen and (max-width: 700px) {
+          width: 500px;
+        }
       }
       textarea:focus {
         outline: none;
@@ -101,6 +126,12 @@
         background-color: #f2f2f2;
         border: none;
         font-size: 16px;
+        @media screen and (max-width: 900px) {
+          width: 518px;
+        }
+        @media screen and (max-width: 700px) {
+          width: 500px;
+        }
       }
       input:focus {
         outline: none;
@@ -139,9 +170,12 @@
   background-color: #f2f2f2;
   width: 100%;
   padding-top: 100px;
-  height: 650px;
+  height: 826px;
   display: flex;
   justify-content: center;
+  @media screen and (max-height: 740px) {
+    height: 620px;
+  }
   .detailProduct__loading {
     margin-top: 100px;
   }
@@ -156,6 +190,9 @@
     justify-content: center;
     flex-direction: row;
     position: relative;
+    @media screen and (max-width: 700px) {
+      width: 600px;
+    }
     .product {
       height: 220px;
       width: 220px;
@@ -164,11 +201,14 @@
       left: 20px;
       margin-left: 35px;
       margin-top: 10px;
+      @media screen and (max-width: 700px) {
+        margin-left: 10px;
+      }
     }
     .data {
       display: block;
       margin-top: 10px;
-      margin-left: 420px;
+      margin-left: 350px;
       h3 {
         padding-top: 25px;
         padding-right: 28px;
@@ -181,6 +221,9 @@
         display: flex;
         margin-top: 40px;
         margin-bottom: 50px;
+        @media screen and (max-width: 700px) {
+          margin-right: 17px;
+        }
         input {
           margin-left: 15px;
           width: 20px;
@@ -260,8 +303,39 @@
       height: 170px;
       margin-top: 80px;
       position: absolute;
-      bottom: 278px;
+      bottom: 318px;
       right: 225px;
+      @media screen and (max-width: 1537px) {
+        right: 189px;
+      }
+      @media screen and (max-width: 1100px) {
+        bottom: 316px;
+        right: 189px;
+      }
+      @media screen and (max-width: 1000px) {
+        bottom: 332px;
+        right: 189px;
+      }
+      @media screen and (max-width: 900px) {
+        bottom: 352px;
+        right: 171px;
+      }
+      @media screen and (max-width: 865px) {
+        bottom: 404px;
+        right: 171px;
+      }
+      @media screen and (max-width: 800px) {
+        bottom: 440px;
+        right: 132px;
+      }
+      @media screen and (max-width: 750px) {
+        bottom: 482px;
+        right: 104px;
+      }
+      @media screen and (max-width: 700px) {
+        bottom: 463px;
+        right: 96px;
+      }
       img {
         width: 10px;
         height: 10px;

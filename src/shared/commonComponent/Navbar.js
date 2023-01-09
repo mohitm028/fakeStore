@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Navbar.scss";
 import Logo from "../../images/logo-social.png";
-import Circle from "../../images/Circle.png";
 import DropDown from "../../images/dropDown.png";
 import Cart from "../../images/cart.jpg";
 import { AddedToCart } from "../../context/index";
@@ -51,7 +50,7 @@ function Navbar() {
       </div>
       <div className="navbar__profile">
         <div className="navbar__circle">
-          {handleInitialLetter(localStorage.getItem("username"))}
+          <p>{handleInitialLetter(localStorage.getItem("username"))}</p>
         </div>
 
         <Link>{handleUserName(localStorage.getItem("username"))}</Link>

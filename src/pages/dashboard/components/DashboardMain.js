@@ -4,7 +4,7 @@ import Navbar from "../../../shared/commonComponent/Navbar";
 import { useHistory } from "react-router-dom";
 
 function DashboardMain(props) {
-  const { fetchAllProducts, fetchCategoryProducts } = props;
+  const { fetchAllProducts, fetchCategoryProducts, productsLoading } = props;
   const history = useHistory();
 
   const [value, setValue] = useState("");
@@ -40,6 +40,7 @@ function DashboardMain(props) {
   return (
     <>
       <Navbar />
+
       <div className="dashboardMain">
         <div className="dashboardMain__filter">
           <select
@@ -56,21 +57,25 @@ function DashboardMain(props) {
             <option value="women's clothing">Women's clothing</option>
           </select>
         </div>
-        <div className="dashboardMain__dashboard">
-          {products.map((values) => {
-            return (
-              <div
-                className="dashboardMain__container"
-                onClick={() => handeClick(values.id)}
-              >
-                <img src={values.image} />
-                <p>{values.title}</p>
-                <p>${values.price}</p>
-                <p>{values.description.slice(0, 70)}...</p>
-              </div>
-            );
-          })}
-        </div>
+        {productsLoading ? (
+          <p className="dashboardMain__loading">Loading...</p>
+        ) : (
+          <div className="dashboardMain__dashboard">
+            {products.map((values) => {
+              return (
+                <div
+                  className="dashboardMain__container"
+                  onClick={() => handeClick(values.id)}
+                >
+                  <img src={values.image} />
+                  <p>{values.title}</p>
+                  <p>${values.price}</p>
+                  <p>{values.description.slice(0, 70)}...</p>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </>
   );

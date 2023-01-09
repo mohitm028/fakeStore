@@ -7,15 +7,22 @@
   position: fixed;
   top: 0;
   z-index: 3;
+  @media screen and (max-width: 700px) {
+    justify-content: space-around;
+  }
   a {
     text-decoration: none;
     padding-left: 30px;
     color: black;
     font-size: 24px;
+    @media screen and (max-width: 700px) {
+      padding-left: 16px;
+    }
   }
   .navbar__logo {
     margin-right: auto;
     width: 1%;
+
     img {
       width: 170px;
       height: 80px;
@@ -23,11 +30,36 @@
   }
   .navbar__content {
     width: 45%;
+    @media screen and (max-width: 700px) {
+      margin-left: 10px;
+    }
   }
 
   .navbar__cart {
     margin-left: 270px;
+    @media screen and (max-width: 1700px) {
+      margin-left: 316px;
+    }
+    @media screen and (max-width: 1537px) {
+      margin-left: 256px;
+    }
+    @media screen and (max-width: 1380px) {
+      margin-left: 165px;
+    }
 
+    @media screen and (max-width: 1300px) {
+      margin-left: 138px;
+    }
+
+    @media screen and (max-width: 1100px) {
+      margin-left: 66px;
+    }
+    @media screen and (max-width: 900px) {
+      margin: 0 -75px 0 0px;
+    }
+    @media screen and (max-width: 700px) {
+      margin: 0 -85px 0 -45px;
+    }
     .onlyCart {
       position: relative;
       img {
@@ -48,6 +80,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       p {
         font-size: 16px;
         color: white;
@@ -61,20 +94,74 @@
     margin-right: 43px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1537px) {
+      margin-right: 40px;
+    }
+    @media screen and (max-width: 1380px) {
+      width: 14%;
+    }
+    @media screen and (max-width: 1300px) {
+      width: 14.5%;
+    }
+    @media screen and (max-width: 1100px) {
+      width: 17%;
+    }
+    @media screen and (max-width: 900px) {
+      width: 20%;
+    }
+    @media screen and (max-width: 700px) {
+      width: 23%;
+      margin-right: 17px;
+    }
 
     .navbar__circle {
-      border-radius: 35px;
+      border-radius: 50%;
       border: 1px solid rgb(56, 174, 204);
       background-color: rgb(56, 174, 204);
-      height: 49px;
+      height: 70px;
       width: 70px;
       color: white;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 35px;
-      padding-bottom: 8px;
+      font-size: 45px;
+      p {
+        margin: 0px 0px 8px 0px;
+      }
+      @media screen and (max-width: 1537px) {
+        height: 46px;
+        width: 46px;
+        font-size: 32px;
+      }
+      @media screen and (max-width: 1380px) {
+        height: 45px;
+        width: 45px;
+        font-size: 30px;
+      }
+      @media screen and (max-width: 1300px) {
+        height: 45px;
+        width: 45px;
+        font-size: 32px;
+      }
+      @media screen and (max-width: 1100px) {
+        height: 40px;
+        width: 40px;
+        font-size: 29px;
+      }
+      @media screen and (max-width: 900px) {
+        height: 35px;
+        width: 35px;
+        font-size: 27px;
+      }
+      @media screen and (max-width: 700px) {
+        height: 30px;
+        width: 30px;
+        font-size: 22px;
+        p {
+          margin: 0px 0px 4px 0px;
+        }
+      }
     }
 
     .navbar__dropdown {
@@ -84,12 +171,12 @@
       .navbar__logout {
         background-color: white;
         border: 1px solid #b4aeae;
-        border-radius: 50%;
+        border-radius: 4px;
         width: 140px;
         height: 30px;
-        position: fixed;
-        top: 94px;
-        right: 51px;
+        position: absolute;
+        top: 48px;
+        right: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
