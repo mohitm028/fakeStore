@@ -35,8 +35,8 @@
     position: relative;
     margin-top: 50px;
     img {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
       position: absolute;
       bottom: 4px;
       right: 376px;
@@ -55,8 +55,8 @@
     position: relative;
     margin-top: 50px;
     img {
-      width: 28px;
-      height: 33px;
+      width: 18px;
+      height: 23px;
       position: absolute;
       bottom: 4px;
       right: 376px;
@@ -70,24 +70,20 @@
     input:focus {
       outline: none;
     }
-    .eye_image{
-        position: absolute;
-        bottom: 4px;
-        right: 2px;
-        height: 14px;
-        width: 20px;
-
-    }
-    .eye_image_off{
+    .eye_image {
       position: absolute;
-      bottom: 2px;
+      bottom: 9px;
+      right: 2px;
+      height: 14px;
+      width: 20px;
+    }
+    .eye_image_off {
+      position: absolute;
+      bottom: 7px;
       right: 2px;
       height: 19px;
       width: 20px;
-  
-  }
- 
-
+    }
   }
 
   .login__forgot {
@@ -114,25 +110,21 @@
       right: 90px;
       cursor: pointer;
     }
-
   }
-  .login__invalidCredentials{
+  .login__invalidCredentials {
     background-color: rgb(246, 201, 201);
-    width:100%;
+    width: 100%;
     color: rgb(236, 53, 53);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: auto;
     margin-bottom: 10px;
-    height:32px;
+    height: 32px;
   }
-
-  
 }
 
 .error {
   color: red;
   width: 352px;
-
 }

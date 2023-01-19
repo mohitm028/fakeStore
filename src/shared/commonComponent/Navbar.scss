@@ -94,6 +94,7 @@
     margin-right: 43px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     @media screen and (max-width: 1537px) {
       margin-right: 40px;
     }
@@ -118,14 +119,14 @@
       border-radius: 50%;
       border: 1px solid rgb(56, 174, 204);
       background-color: rgb(56, 174, 204);
-      height: 70px;
-      width: 70px;
+      height: 55px;
+      width: 55px;
       color: white;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 45px;
+      font-size: 40px;
       p {
         margin: 0px 0px 8px 0px;
       }
@@ -165,9 +166,17 @@
     }
 
     .navbar__dropdown {
-      margin-top: 10px;
       margin-left: 10px;
       position: relative;
+      cursor: pointer;
+      @media screen and (max-width: 1600px) {
+        display: flex;
+        img {
+          margin-top: 10px;
+          height: 10px;
+          width: 15px;
+        }
+      }
       .navbar__logout {
         background-color: white;
         border: 1px solid #b4aeae;
@@ -182,7 +191,7 @@
         align-items: center;
         font-size: 20px;
         font-weight: 400;
-        cursor: pointer;
+
         padding-bottom: 5px;
       }
     }

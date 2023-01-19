@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./DashboardMain.scss";
 import Navbar from "../../../shared/commonComponent/Navbar";
-import { useHistory } from "react-router-dom";
 
 function DashboardMain(props) {
   const { fetchAllProducts, fetchCategoryProducts, productsLoading } = props;
   const history = useHistory();
 
-  const [value, setValue] = useState("");
+  const [categoryDropdownListValue, setCategoryDropdownListValue] =
+    useState("");
   const [products, setProducts] = useState([]);
-  const [fetchAll, setFetchAll] = useState(false);
+  const [reloadFetchingUsingCategory, setReloadFetchingCategory] =
+    useState(false);
 
   const handleProductListByCategory = (e) => {
     if (e.target.value == "all") {
-      setFetchAll((prevState) => !prevState);
+      setReloadFetchingCategory((prevState) => !prevState);
     } else {
       {
         fetchCategoryProducts(e.target.value).then((response) => {
@@ -23,7 +25,11 @@ function DashboardMain(props) {
         });
       }
     }
-    setValue(e.target.value);
+    setCategoryDropdownListValue(e.target.value);
+  };
+
+  const handeClick = (id) => {
+    history.push(`/${id}/details`);
   };
 
   useEffect(() => {
@@ -32,22 +38,18 @@ function DashboardMain(props) {
         setProducts(response.data);
       }
     });
-  }, [fetchAll]);
-  const handeClick = (id) => {
-    history.push(`/${id}/details`);
-  };
+  }, [reloadFetchingUsingCategory]);
 
   return (
     <>
       <Navbar />
-
       <div className="dashboardMain">
         <div className="dashboardMain__filter">
           <select
             type="text"
             name="category"
             id="category"
-            value={value}
+            value={categoryDropdownListValue}
             onChange={(e) => handleProductListByCategory(e)}
           >
             <option value="all">All</option>

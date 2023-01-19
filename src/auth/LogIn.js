@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./index.scss";
@@ -6,10 +7,9 @@ import userImage from "../images/User.png";
 import lockImage from "../images/Lock.png";
 import eye from "../images/Eye.png";
 import eyeOff from "../images/eye-off.svg";
-import { useHistory } from "react-router-dom";
 
 function LogIn() {
-  const [match, setMatch] = useState(false);
+  const [matchPassword, setMatchPassword] = useState(false);
   const [eyeIcon, setEyeIcon] = useState(true);
 
   const history = useHistory();
@@ -42,11 +42,11 @@ function LogIn() {
         values.username == "aricalot@gmail.com" &&
         values.password == "TEST@123"
       ) {
-        setMatch(false);
+        setMatchPassword(false);
         localStorage.setItem("username", values.username);
         history.push("/dashboard");
       } else {
-        setMatch(true);
+        setMatchPassword(true);
       }
     },
   });
@@ -111,7 +111,7 @@ function LogIn() {
           <div className="login__submit">
             <button type="submit">Sign In</button>
           </div>
-          {match && (
+          {matchPassword && (
             <div className="login__invalidCredentials">Invalid credentials</div>
           )}
         </div>

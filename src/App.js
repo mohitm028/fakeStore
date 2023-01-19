@@ -1,7 +1,7 @@
-import LogIn from "./auth/LogIn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LogIn from "./auth/LogIn";
 import DashboardContainer from "./pages/dashboard/container/DashboardContainer";
-import AddProductContainer from "./pages/product/container/AddProductContainer";
+import CommonProductContainer from "./pages/product/container/CommonProductContainer";
 import DetailContainer from "./pages/product/container/DetailContainer";
 
 function App() {
@@ -15,13 +15,13 @@ function App() {
           <DashboardContainer />
         </Route>
         <Route exact path={"/addproduct"}>
-          <AddProductContainer />
+          <CommonProductContainer />
         </Route>
         <Route exact path={"/:id/details"}>
           <DetailContainer />
         </Route>
         <Route exact path={"/:id/edit"}>
-          <AddProductContainer />
+          <CommonProductContainer />
         </Route>
       </Switch>
     </Router>

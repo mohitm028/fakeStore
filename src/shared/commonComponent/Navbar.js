@@ -7,6 +7,7 @@ import Cart from "../../images/cart.jpg";
 import { AddedToCart } from "../../context/index";
 
 function Navbar() {
+  const { cartData } = useContext(AddedToCart);
   const [dropDown, setDropDown] = useState(false);
 
   const history = useHistory();
@@ -28,7 +29,6 @@ function Navbar() {
     return name.toUpperCase();
   };
 
-  const { cartData } = useContext(AddedToCart);
   return (
     <nav className="navbar__nav">
       <div className="navbar__logo">
@@ -53,9 +53,9 @@ function Navbar() {
           <p>{handleInitialLetter(localStorage.getItem("username"))}</p>
         </div>
 
-        <Link>{handleUserName(localStorage.getItem("username"))}</Link>
-        <div className="navbar__dropdown">
-          <img src={DropDown} onClick={handleDropDown} />
+        <div className="navbar__dropdown" onClick={handleDropDown}>
+          <Link>{handleUserName(localStorage.getItem("username"))}</Link>
+          <img src={DropDown} />
           {dropDown && (
             <div className="navbar__logout" onClick={handleLogOut}>
               Log Out

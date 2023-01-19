@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import "./index.scss";
 import Navbar from "../../../shared/commonComponent/Navbar";
 import ThreeDot from "../../../images/threeDot.png";
-import { useParams, useHistory } from "react-router-dom";
 import Cross from "../../../images/cross.png";
 import { AddedToCart } from "../../../context";
 

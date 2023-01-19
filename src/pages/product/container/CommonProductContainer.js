@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import AddProductMain from "../components/AddProductMain";
+import CommonProductMain from "../components/CommonProductMain";
 import * as addProductService from "../../../duck/product/services";
 import * as addProductAction from "../../../duck/product/action";
 
-export class AddProductContainer extends Component {
+export class CommonProductContainer extends Component {
   productDetail = (id) => {
     return this.props.actions.productDetail(id);
   };
@@ -28,7 +28,7 @@ export class AddProductContainer extends Component {
 
   render() {
     return (
-      <AddProductMain
+      <CommonProductMain
         addProduct={this.addProduct}
         productDetail={this.productDetail}
         editProduct={this.editProduct}
@@ -65,4 +65,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddProductContainer);
+)(CommonProductContainer);

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Navbar from "../../../shared/commonComponent/Navbar";
-import "./index.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useParams, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { useParams, useHistory } from "react-router-dom";
+import "./index.scss";
+import Navbar from "../../../shared/commonComponent/Navbar";
 
 function AddProductMain(props) {
   const {
@@ -20,23 +20,6 @@ function AddProductMain(props) {
   const params = useParams();
   const id = params.id;
   const history = useHistory();
-  console.log(productDetailData);
-
-  useEffect(() => {
-    if (id) {
-      productDetail(id);
-    } else {
-      clearProductData();
-    }
-
-    return () => {
-      clearProductData();
-    };
-  }, [id]);
-
-  useEffect(() => {
-    clearProductData();
-  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -77,6 +60,23 @@ function AddProductMain(props) {
       }
     },
   });
+
+  useEffect(() => {
+    clearProductData();
+  }, []);
+
+  useEffect(() => {
+    if (id) {
+      productDetail(id);
+    } else {
+      clearProductData();
+    }
+
+    return () => {
+      clearProductData();
+    };
+  }, [id]);
+
   return (
     <div className="addproductMain ">
       <Navbar />
@@ -93,7 +93,7 @@ function AddProductMain(props) {
                   type="text"
                   name="title"
                   id="title"
-                  placeholder=" Enter a product title"
+                  placeholder="Enter a product title"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.title}
@@ -111,14 +111,13 @@ function AddProductMain(props) {
                     type="text"
                     name="price"
                     id="price"
-                    placeholder=" Price"
+                    placeholder="Price"
                     onBlur={formik.handleBlur}
                     value={formik.values.price}
                     onChange={(e) => {
                       e.target.value = e.target.value.replace(/\D/g, "");
                       formik.handleChange(e);
                     }}
-                    // onKeyDown={(e) => handleClick(e)}
                   />
                 </div>
                 {formik.touched.price && formik.errors.price ? (
@@ -155,11 +154,10 @@ function AddProductMain(props) {
                 <textarea
                   name="description"
                   id="description"
-                  placeholder=" Enter a product description"
+                  placeholder="Enter a product description"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.description}
-                  // onKeyDown={(e) => handleClick(e)}
                 />
               </div>
               {formik.touched.description && formik.errors.description ? (
@@ -173,11 +171,10 @@ function AddProductMain(props) {
                   type="text"
                   name="image"
                   id="image"
-                  placeholder=" Upload a product image"
+                  placeholder="Upload a product image"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.image}
-                  // onKeyDown={(e) => handleClick(e)}
                 />
               </div>
               {formik.touched.image && formik.errors.image ? (
